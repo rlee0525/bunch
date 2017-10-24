@@ -38,8 +38,8 @@ class App extends React.Component {
     await Font.loadAsync({ 'agb': require('./assets/fonts/agb.ttf') });
     this.setState({ fontLoaded: true });
 
-    await this.resolveAfter2Seconds(20);
-    this.setState({ loading: false });
+    // await this.resolveAfter2Seconds(20);
+    // this.setState({ loading: false });
   }
 
   resolveAfter2Seconds(x) {
@@ -53,13 +53,13 @@ class App extends React.Component {
   render() {
     if (!this.state.fontLoaded) return null;
 
-    if (this.state.loading) {
-      return (
-        <View style={styles.container}>
-          <Text style={styles.loadingFont}>BUNCH</Text>
-        </View>
-      );
-    }
+    // if (this.state.loading) {
+    //   return (
+    //     <View style={styles.container}>
+    //       <Text style={styles.loadingFont}>BUNCH</Text>
+    //     </View>
+    //   );
+    // }
     
     return (
       <Provider store={this.store}>
