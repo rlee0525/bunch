@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  whiteFont: {
+  loadingFont: {
     color: 'white',
     fontFamily: 'agb',
     fontSize: 30
@@ -23,8 +23,6 @@ const styles = StyleSheet.create({
 });
 
 class App extends React.Component {
-  store = createStore(AppReducer);
-
   constructor(props) {
     super(props);
 
@@ -32,13 +30,12 @@ class App extends React.Component {
       fontLoaded: false,
       loading: true
     };
+
+    this.store = createStore(AppReducer);
   }
 
   async componentDidMount() {
-    await Font.loadAsync({
-      'agb': require('./assets/fonts/agb.ttf'),
-    });
-
+    await Font.loadAsync({ 'agb': require('./assets/fonts/agb.ttf') });
     this.setState({ fontLoaded: true });
 
     await this.resolveAfter2Seconds(20);
@@ -59,7 +56,7 @@ class App extends React.Component {
     if (this.state.loading) {
       return (
         <View style={styles.container}>
-          <Text style={styles.whiteFont}>BUNCH</Text>
+          <Text style={styles.loadingFont}>BUNCH</Text>
         </View>
       );
     }
@@ -72,6 +69,6 @@ class App extends React.Component {
   }
 }
 
-AppRegistry.registerComponent('ReduxExample', () => ReduxExampleApp);
+AppRegistry.registerComponent('App', () => App);
 
 export default App;
