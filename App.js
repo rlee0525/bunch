@@ -20,12 +20,11 @@ export default class App extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     if (!this.state.fontLoaded) return null;
     
     return (
       <View style={styles.container}>
-        <Text style={styles.whiteFont}>Bunch</Text>
+        <Text style={styles.whiteFont}>BUNCH</Text>
       </View>
     );
   }
