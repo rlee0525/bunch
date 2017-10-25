@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   welcome: {
     fontFamily: 'HelveticaNeue-Bold',
-    fontSize: 24,
+    fontSize: 26,
     color: '#555',
     backgroundColor: 'transparent',
     textAlign: 'center',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     position: 'absolute',
     bottom: 0,
-    marginBottom: 70
+    marginBottom: 75
   },
   loginBtnImg: {
     width: 40,
