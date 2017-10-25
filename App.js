@@ -35,31 +35,34 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    await Font.loadAsync({ 'agb': require('./assets/fonts/agb.ttf') });
+    await Font.loadAsync({ 
+      'agb': require('./assets/fonts/agb.ttf'),
+      'roboto': require('./assets/fonts/Roboto-Regular.ttf')
+    });
     this.setState({ fontLoaded: true });
 
-    // await this.resolveAfter2Seconds(20);
-    // this.setState({ loading: false });
+    await this.resolveAfter1Second(10);
+    this.setState({ loading: false });
   }
 
-  resolveAfter2Seconds(x) {
+  resolveAfter1Second(x) {
     return new Promise(resolve => {
       setTimeout(() => {
         resolve(x);
-      }, 2000);
+      }, 1000);
     });
   }
 
   render() {
     if (!this.state.fontLoaded) return null;
 
-    // if (this.state.loading) {
-    //   return (
-    //     <View style={styles.container}>
-    //       <Text style={styles.loadingFont}>BUNCH</Text>
-    //     </View>
-    //   );
-    // }
+    if (this.state.loading) {
+      return (
+        <View style={styles.container}>
+          <Text style={styles.loadingFont}>Bunch</Text>
+        </View>
+      );
+    }
     
     return (
       <Provider store={this.store}>

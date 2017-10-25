@@ -1,6 +1,6 @@
-import Expo from 'expo';
 import React from 'react';
 import PropTypes from 'prop-types';
+import Expo, { LinearGradient } from 'expo';
 import { 
   Text, 
   View, 
@@ -15,7 +15,29 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white'
+  },
+  pinkBox: {
+    backgroundColor: '#ec008c',
+    width: '85%',
+    height: '50%',
+    position: 'absolute',
+    top: 0
+  },
+  logoImg: {  
+    position: 'absolute',
+    width: 100,
+    height: 100,
+    marginBottom: 100
+  },
+  welcome: {
+    fontFamily: 'HelveticaNeue-Bold',
+    fontSize: 24,
+    color: '#555',
+    backgroundColor: 'transparent',
+    textAlign: 'center',
+    width: '90%',
+    marginTop: '55%'
   },
   loginBtn: {
     padding: 3,
@@ -25,7 +47,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 4
+    borderRadius: 4,
+    position: 'absolute',
+    bottom: 0,
+    marginBottom: 90
   },
   loginBtnImg: {
     width: 40,
@@ -65,6 +90,12 @@ class LoginScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.pinkBox}/>
+        <Image
+          style={styles.logoImg}
+          source={require('../../assets/images/bunch_logo_7.png')}
+        />
+        <Text style={styles.welcome}>Welcome to Bunch</Text>
         <TouchableOpacity onPress={this.logIn} style={styles.loginBtn}>
           <Image
             style={styles.loginBtnImg}
