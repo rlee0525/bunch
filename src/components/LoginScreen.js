@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: '85%',
     height: '50%',
     position: 'absolute',
-    top: 0
+    top: 20
   },
   logoImg: {  
     position: 'absolute',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     position: 'absolute',
     bottom: 0,
-    marginBottom: 75
+    marginBottom: 80
   },
   loginBtnImg: {
     width: 40,
@@ -114,6 +114,7 @@ LoginScreen.propTypes = {
 
 LoginScreen.navigationOptions = {
   title: 'Log In',
+  header: null
 };
 
 export default LoginScreen;
