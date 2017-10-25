@@ -39,37 +39,41 @@ const styles = StyleSheet.create({
   }
 });
 
-const LoginScreen = ({ navigation }) => (
-  <View style={styles.container}>
-    <TouchableOpacity onPress={logIn} style={styles.loginBtn}>
-      <Image 
-        style={styles.loginBtnImg} 
-        source={require('../../assets/images/facebook_logo.png')}
-      />
-      <Text style={styles.loginBtnText}>Log in With Facebook</Text>
-    </TouchableOpacity>
-    {/* <Button
-      onPress={() => navigation.dispatch({ type: 'Login' })}
-      title="Log in"
-    /> */}
-  </View>
-);
+class LoginScreen extends React.Component {
+  constructor(props) {
+    super(props);
 
-async function logIn() {
-  const {
-    type,
-    token,
-  } = await Expo.Facebook.logInWithReadPermissionsAsync('126078211437639', {
+    this.logIn = this.logIn.bind(this);
+  }
+
+  async logIn() {
+    const { navigation } = this.props;
+    const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('126078211437639', {
       permissions: ['public_profile'],
       behavior: 'web'
     });
 
-  if (type === 'success') {
-    // Get the user's name using Facebook's Graph API
-    const response = await fetch(
-      `https://graph.facebook.com/me?access_token=${token}`
+    if (type === 'success') {
+      const response = await fetch(
+        `https://graph.facebook.com/me?fields=id,first_name,last_name,email,birthday,education,gender,picture&access_token=${token}`
+      );
+      console.log(await response.json());
+      navigation.dispatch({ type: 'Login' });
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this.logIn} style={styles.loginBtn}>
+          <Image
+            style={styles.loginBtnImg}
+            source={require('../../assets/images/facebook_logo.png')}
+          />
+          <Text style={styles.loginBtnText}>Log in With Facebook</Text>
+        </TouchableOpacity>
+      </View>
     );
-    Alert.alert('Logged in!', `Hi ${(await response.json()).name}!`);
   }
 }
 
