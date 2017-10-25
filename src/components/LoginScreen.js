@@ -26,9 +26,9 @@ const styles = StyleSheet.create({
   },
   logoImg: {  
     position: 'absolute',
-    width: 100,
-    height: 100,
-    marginBottom: 100
+    width: 130,
+    height: 130,
+    marginBottom: 130
   },
   welcome: {
     fontFamily: 'HelveticaNeue-Bold',
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     textAlign: 'center',
     width: '90%',
-    marginTop: '55%'
+    marginTop: '65%'
   },
   loginBtn: {
     padding: 3,
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     position: 'absolute',
     bottom: 0,
-    marginBottom: 90
+    marginBottom: 70
   },
   loginBtnImg: {
     width: 40,
