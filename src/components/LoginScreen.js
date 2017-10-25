@@ -49,7 +49,7 @@ class LoginScreen extends React.Component {
   async logIn() {
     const { navigation } = this.props;
     const { type, token } = await Expo.Facebook.logInWithReadPermissionsAsync('126078211437639', {
-      permissions: ['public_profile'],
+      permissions: ['public_profile', 'email', 'user_birthday', 'user_education_history'],
       behavior: 'web'
     });
 
