@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import LoginStatusMessage from './LoginStatusMessage';
 import AuthButton from './AuthButton';
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#fff',
   },
 });
 
@@ -22,6 +22,7 @@ const MainScreen = () => (
 
 MainScreen.navigationOptions = {
   title: 'Home Screen',
+  header: null
 };
 
 export default MainScreen;

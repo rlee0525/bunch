@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
   loadingFont: {
     color: 'white',
     fontFamily: 'agb',
-    fontSize: 35,
-    letterSpacing: 0.3
+    fontSize: 24,
+    letterSpacing: 0.5
   }
 });
 
